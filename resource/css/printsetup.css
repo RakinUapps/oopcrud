@@ -1,0 +1,30 @@
+@media print {
+    @page {
+        size: auto;
+        margin-top: 0;
+        margin-bottom: .5in;
+    }
+@page  {
+    @bottom-center{content: counter(page) " of " counter(pages);}
+}
+
+}
+div#reporttable table {
+    border: 1px solid black; }
+div#reporttable table th {
+    border: 1px solid black;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 12px;}
+div#reporttable table td{
+    border: 1px solid black;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 12px;}
+div#reporttable table {  border-collapse: collapse;   }
+div#reporttable th {   height: 30px;  }
+div#reporttable .tablefooter{height: 30px; }
+
+table{
+    margin: 0 auto;
+}
