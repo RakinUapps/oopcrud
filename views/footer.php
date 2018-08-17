@@ -7,8 +7,8 @@
                 <br>
 
                  <b>BOOK RECORDS</b><br>
-                <div id="developer">Developed by <a target="_blank" style="color:#000000; text-decoration: none;"  href="http://www.olineit.com"> Oline IT</a></div>
-                <div >Contact : 01714130077 </div>
+                <div id="developer">Developed by <a target="_blank" style="color:#000000; text-decoration: none;"  href="http://www.uappstech.com"> Uapps Tech</a></div>
+                <div >Management System</div>
 
             </div>
             <div class="col-sm-1"></div>

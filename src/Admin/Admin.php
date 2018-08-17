@@ -10,7 +10,7 @@ use PDOException;
 class Admin extends DB
 {
 
-       public $name,$authorid,$dop,$isbn,$categoryid,$remarks,$price,$modified;
+       public $name,$authorid,$dop,$dob,$doj,$staffid,$isbn,$categoryid,$remarks,$price,$modified,$studentid,$joined;
 
 
      public function setData($postData){
@@ -20,17 +20,21 @@ class Admin extends DB
          if(array_key_exists('name',$postData)){$this->name = $postData['name'];         }
          if(array_key_exists('authorid',$postData)){$this->authorid = $postData['authorid']; }
          if(array_key_exists('dop',$postData)){$this->dop = $postData['dop']; }
+         if(array_key_exists('dob',$postData)){$this->dop = $postData['dob']; }
          if(array_key_exists('isbn',$postData)){$this->isbn = $postData['isbn']; }
          if(array_key_exists('categoryid',$postData)){$this->categoryid = $postData['categoryid']; }
          if(array_key_exists('remarks',$postData)){$this->remarks = $postData['remarks']; }
          if(array_key_exists('price',$postData)){$this->price = $postData['price']; }
          if(array_key_exists('modified',$postData)){$this->modified = $postData['modified']; }
+         if(array_key_exists('doj',$postData)){$this->doj = $postData['doj']; }
+         if(array_key_exists('staffid',$postData)){$this->staffid = $postData['staffid']; }
+         if(array_key_exists('studentid',$postData)){$this->studentid = $postData['studentid']; }
+         if(array_key_exists('joined',$postData)){$this->joined = $postData['joined']; }
 
      }
 
 
       public function store(){
-
 
           $arrData='';
            $sql='';
@@ -40,11 +44,23 @@ class Admin extends DB
                $sql = "INSERT INTO book(name,authorid,dop,isbn,categoryid,remarks,price,modified) VALUES(?,?,?,?,?,?,?,?)";
            }
            if (isset($_POST['addauthor'])){
+               $arrData = array($this->name, $this->dob, $this->remarks, $this->modified);
+
                $sql = "INSERT into author (name,dob,remarks,modified) VALUES(?,?,?,?)";
+
            }
+          if (isset($_POST['addstaff'])){
+              $arrData = array($this->name, $this->doj, $this->remarks, $this->staffid);
 
+              $sql = "INSERT into staff (name,doj,remarks,staffid) VALUES(?,?,?,?)";
 
+          }
+          if (isset($_POST['addstudent'])){
+              $arrData = array($this->name, $this->joined, $this->remarks, $this->studentd);
 
+              $sql = "INSERT into student (name,joined,remarks,studentid) VALUES(?,?,?,?)";
+
+          }
 
           $STH = $this->DBH->prepare($sql);
 
@@ -59,4 +75,21 @@ class Admin extends DB
 
 
       }
+
+
+          public function  view(){
+
+                  $sql='';
+                  $STH='';
+                  if ($_GET['id']=='book'){
+                      $sql="select from book";
+                      $STH=$this->DBH->query($sql);
+                      $STH->setFetchMode(PDO::FETCH_OBJ);
+                      return $STH->fetchAll();
+
+                  }
+
+          }
+
+
    }
