@@ -215,10 +215,31 @@ include 'header.php';
                         <div class="col-sm-3"><input class="form-control form-group" name="remarks" type="text"></div>
                         <div class="col-sm-4"></div>
                     </div>
+                    <tr> <td colspan="3" align="center"><input type="submit" class="ui-button" value="Save"></td>
                 </div>
                 <div class="col-sm-1"></div>
             </form>
         </div>
+    <?php }
+    if($_GET['id']=='addcategory'){ ?>
+<div class="row">
+    <form action="store.php" method="post">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-1 text-left"><label for="name">Name</label></div>
+                <div class="col-sm-1 text-right">:</div>
+                <div class="col-sm-3">
+                    <input name="modified" type="text" hidden  value="<?php echo date('Y-m-d');?>">
+                    <input type="hidden" name="<?php echo $_GET['id']; ?>" value="<?php echo $_GET['id']; ?>" >
+                    <input class="form-control form-group" name="name" type="text">
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+            <tr> <td colspan="3" align="center"><input type="submit" class="ui-button" value="Save"></td>
+        </div>
+        <div class="col-sm-1"></div>
     <?php }?>
 
 </div>

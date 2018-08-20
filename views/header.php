@@ -71,10 +71,11 @@
 									<li class="dropdown">
 										<a id="menu" href="" class="dropdown-toggle" data-toggle="dropdown" role="button" data-hover="dropdown" aria-haspopup="true" aria-expanded="false" data-animations="zoomIn zoomIn zoomIn zoomIn">Book Reports<span class="caret"></span></a>
 										<ul class="dropdown-menu">
-											<li class="backg"><a id="menu" href="../src/Admin">Book Data</a></li>
-											<li class="backg"><a id="menu" href="">Staff Data</a></li>
-											<li class="backg"><a id="menu" href="view.php">Category Data</a></li>
-											<li class="backg"><a id="menu" href="view.php">Author Data</a></li>
+											<li class="backg"><a id="menu" href="view.php?id=book">Book Data</a></li>
+											<li class="backg"><a id="menu" href="view.php?id=staff">Staff Data</a></li>
+											<li class="backg"><a id="menu" href="view.php?id=category">Category Data</a></li>
+											<li class="backg"><a id="menu" href="view.php?id=author">Author Data</a></li>
+											<li class="backg"><a id="menu" href="view.php?id=student">Student Data</a></li>
 
 											<li class="backg"><a id="menu" href=""></a></li>
 											<li class="divider"></li>

@@ -20,7 +20,7 @@ class Admin extends DB
          if(array_key_exists('name',$postData)){$this->name = $postData['name'];         }
          if(array_key_exists('authorid',$postData)){$this->authorid = $postData['authorid']; }
          if(array_key_exists('dop',$postData)){$this->dop = $postData['dop']; }
-         if(array_key_exists('dob',$postData)){$this->dop = $postData['dob']; }
+         if(array_key_exists('dob',$postData)){$this->dob = $postData['dob']; }
          if(array_key_exists('isbn',$postData)){$this->isbn = $postData['isbn']; }
          if(array_key_exists('categoryid',$postData)){$this->categoryid = $postData['categoryid']; }
          if(array_key_exists('remarks',$postData)){$this->remarks = $postData['remarks']; }
@@ -50,15 +50,21 @@ class Admin extends DB
 
            }
           if (isset($_POST['addstaff'])){
-              $arrData = array($this->name, $this->doj, $this->remarks, $this->staffid);
+              $arrData = array($this->name, $this->doj, $this->remarks, $this->staffid,$this->modified);
 
-              $sql = "INSERT into staff (name,doj,remarks,staffid) VALUES(?,?,?,?)";
+              $sql = "INSERT into staff (name,doj,remarks,staffid,modified) VALUES(?,?,?,?,?)";
 
           }
           if (isset($_POST['addstudent'])){
-              $arrData = array($this->name, $this->joined, $this->remarks, $this->studentd);
+              $arrData = array($this->name, $this->joined, $this->remarks, $this->studentid);
 
               $sql = "INSERT into student (name,joined,remarks,studentid) VALUES(?,?,?,?)";
+
+          }
+          if (isset($_POST['addcategory'])){
+              $arrData = array($this->name);
+
+              $sql = "INSERT into category (name) VALUES(?)";
 
           }
 
@@ -78,18 +84,29 @@ class Admin extends DB
 
 
           public function  view(){
-
                   $sql='';
-                  $STH='';
-                  if ($_GET['id']=='book'){
-                      $sql="select from book";
-                      $STH=$this->DBH->query($sql);
-                      $STH->setFetchMode(PDO::FETCH_OBJ);
-                      return $STH->fetchAll();
 
+                  if ($_GET['id']=='book'){
+                      $sql="select * from book";
                   }
+              if ($_GET['id']=='author'){
+                  $sql="select * from author";
+              }
+              if ($_GET['id']=='category'){
+                  $sql="select * from category";
+              }
+              if ($_GET['id']=='staff'){
+                  $sql="select * from staff";
+              }
+              if ($_GET['id']=='student'){
+                  $sql="select * from student";
+              }
+              $STH=$this->DBH->query($sql);
+              $STH->setFetchMode(PDO::FETCH_OBJ);
+              return $STH->fetchAll();
+              }
+
+
+
 
           }
-
-
-   }

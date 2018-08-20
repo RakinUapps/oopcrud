@@ -30,7 +30,7 @@
 
 /* ======================== index.php =========================== */
 .headSection .myhead{
-					background-color:#4B6C9E;
+					background-color:dodgerblue;
 					}
 .headSection .myhead h3{
 						font-weight:bold;
@@ -46,7 +46,7 @@
 								color:#FFFFFF;
 								}	
 .headSection .navbar-default {
-    background-color: #0F375B;
+    background-color: #46b8da;
     border-color: transparent;
 }			
 .navbar-default .navbar-left>li>a {
@@ -96,6 +96,9 @@
 
 	margin:5px 5px  5px 5px;
 }
+ #resulttable{
+	 border-width: thin;
+ }
 						
 						
 						
