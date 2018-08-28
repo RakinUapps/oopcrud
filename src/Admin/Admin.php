@@ -11,6 +11,7 @@ class Admin extends DB
 {
 
        public $name,$authorid,$dop,$dob,$doj,$staffid,$isbn,$categoryid,$remarks,$price,$modified,$studentid,$joined;
+       private $id;
 
 
      public function setData($postData){
@@ -30,6 +31,7 @@ class Admin extends DB
          if(array_key_exists('staffid',$postData)){$this->staffid = $postData['staffid']; }
          if(array_key_exists('studentid',$postData)){$this->studentid = $postData['studentid']; }
          if(array_key_exists('joined',$postData)){$this->joined = $postData['joined']; }
+         if(array_key_exists('id',$postData)){$this->id = $postData['id']; }
 
      }
 
@@ -87,25 +89,58 @@ class Admin extends DB
                   $sql='';
 
                   if ($_GET['id']=='book'){
-                      $sql="select * from book";
+                      $sql="select * from book WHERE soft_delete='No'";
                   }
               if ($_GET['id']=='author'){
-                  $sql="select * from author";
+                  $sql="select * from author WHERE soft_delete='No'";
               }
               if ($_GET['id']=='category'){
-                  $sql="select * from category";
+                  $sql="select * from category WHERE soft_delete='No'";
               }
               if ($_GET['id']=='staff'){
-                  $sql="select * from staff";
+                  $sql="select * from staff WHERE soft_delete='No'";
               }
               if ($_GET['id']=='student'){
-                  $sql="select * from student";
+                  $sql="select * from student WHERE soft_delete='No'";
               }
               $STH=$this->DBH->query($sql);
               $STH->setFetchMode(PDO::FETCH_OBJ);
               return $STH->fetchAll();
               }
 
+
+          public function  delete(){
+         //var_dump($_GET);
+         //die();
+        $sql='';
+
+        if ($_GET['deleteid']=='book'){
+            $sql="UPDATE book SET soft_delete='Yes' WHERE id='$this->id'";
+        }
+        if ($_GET['deleteid']=='author'){
+            $sql="UPDATE author SET soft_delete='Yes' WHERE id='$this->id'";
+        }
+        if ($_GET['deleteid']=='category'){
+            $sql="UPDATE category SET soft_delete='Yes' WHERE id='$this->id'";
+        }
+        if ($_GET['deleteid']=='staff'){
+            $sql="UPDATE staff SET soft_delete='Yes' WHERE id='$this->id'";
+        }
+        if ($_GET['deleteid']=='student'){
+            $sql="UPDATE student SET soft_delete='Yes' WHERE id='$this->id'";
+        }
+        
+         $STH = $this->DBH->prepare($sql);
+
+        $result =$STH->execute();
+
+        if($result)
+            Message::message("Success! Data Has Been Deleted Successfully :)");
+        else
+            Message::message("Failed! Data Has Not Been Deleted  :( ");
+
+        Utility::redirect('index.php');
+    }
 
 
 
