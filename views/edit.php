@@ -4,8 +4,9 @@ use App\Message\Message;
 use App\Utility\Utility;
 include ('namespace.php');
 
-$objAdmin = new \App\Admin\Admin();
-
+$objData= new \App\Admin\Admin();
+$objData->setData($_GET);
+$viewData=$objData->editview();
 $msg = Message::getMessage();
 
 //Utility::redirect('User/Profile/signup.php');
@@ -19,7 +20,7 @@ include 'header.php';
 </div>
 <div id="tb" align="center">
     <?php
-    if($_GET['id']=='addbook'){ ?>
+    if($_GET['editid']=='book'){ ?>
 <!-- Book page-->
 <div class="row">
     <form  action="store.php" method="post">
@@ -94,9 +95,9 @@ include 'header.php';
     <div class="col-sm-1"></div>
     </form>
 </div>
-<!-- authoe-->
+<!-- author-->
     <?php }
-    if($_GET['id']=='addauthor'){ ?>
+    if($_GET['editid']=='author'){ ?>
         <div class="row">
             <form action="store.php" method="post">
                 <div class="col-sm-1"></div>
@@ -136,7 +137,9 @@ include 'header.php';
         </div>
 <!-- staff-->
     <?php }
-    if($_GET['id']=='addstaff'){ ?>
+    if($_GET['editid']=='staff'){
+        var_dump($viewData);
+        ?>
     <div class="row">
         <form action="store.php" method="post">
             <div class="col-sm-1"></div>
@@ -178,7 +181,7 @@ include 'header.php';
         </form>
     </div>
     <?php }
-    if($_GET['id']=='addstudent'){ ?>
+    if($_GET['editid']=='student'){ ?>
         <div class="row">
             <form action="store.php" method="post">
                 <div class="col-sm-1"></div>
@@ -221,7 +224,7 @@ include 'header.php';
             </form>
         </div>
     <?php }
-    if($_GET['id']=='addcategory'){ ?>
+    if($_GET['editid']=='category'){ ?>
 <div class="row">
     <form action="store.php" method="post">
         <div class="col-sm-1"></div>

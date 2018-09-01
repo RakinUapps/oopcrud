@@ -141,7 +141,29 @@ class Admin extends DB
 
         Utility::redirect('index.php');
     }
+    public function  editview(){
+        $sql='';
 
+        if ($_GET['editid']=='book'){
+            $sql="select * from book WHERE id=$this->id";
+        }
+        if ($_GET['editid']=='author'){
+            $sql="select * from author WHERE id=$this->id";
+        }
+        if ($_GET['editid']=='category'){
+            $sql="select * from category WHERE id=$this->id";
+        }
+        if ($_GET['editid']=='staff'){
+            $sql="select * from staff WHERE id=$this->id";
+        }
+        if ($_GET['editid']=='student'){
+            $sql="select * from student WHERE id=$this->id";
+        }
+        $STH=$this->DBH->query($sql);
+        $STH->setFetchMode(PDO::FETCH_OBJ);
+        return $STH->fetchAll();
+
+    }
 
 
           }
