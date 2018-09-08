@@ -165,5 +165,86 @@ class Admin extends DB
 
     }
 
+    public function update(){
+
+        $arrData='';
+        $sql='';
+        if ($_POST['editid']=='book') {
+            //var_dump($_POST);
+            //die();
+            $arrData = array($this->name, $this->authorid, $this->dop, $this->isbn, $this->categoryid, $this->remarks, $this->price, $this->modified);
+            $sql = "UPDATE book SET name=?,authorid=?,dop=?,isbn=?,categoryid=?,remarks=?,price=?,modified=?";
+        }
+        if (isset($_POST['addauthor'])){
+            $arrData = array($this->name, $this->dob, $this->remarks, $this->modified);
+
+            $sql = "UPDATE author SET name=?,dob=?,remarks=?,modified=?";
+
+        }
+        if (isset($_POST['addstaff'])){
+            $arrData = array($this->name, $this->doj, $this->remarks, $this->staffid,$this->modified);
+
+            $sql = "UPDATE staff SET name=?,doj=?,remarks=?,staffid=?,modified=?";
+
+        }
+        if (isset($_POST['addstudent'])){
+            $arrData = array($this->name, $this->joined, $this->remarks, $this->studentid);
+
+            $sql = "UPDATE student SET name=?,joined=?,remarks=?,studentid=?";
+
+        }
+        if (isset($_POST['addcategory'])){
+            $arrData = array($this->name);
+
+            $sql = "UPDATE category SET name=?";
+
+        }
+
+        $STH = $this->DBH->prepare($sql);
+
+        $result =$STH->execute($arrData);
+
+
+        if($result)
+            Message::message("Success! Data Has Been Inserted Successfully :)");
+        else
+            Message::message("Failed! Data Has Not Been Inserted :( ");
+
+        Utility::redirect('index.php');
+
+
+    }
+    public function  restore(){
+        //var_dump($_GET);
+        //die();
+        $sql='';
+
+        if ($_GET['restoreid']=='book'){
+            $sql="UPDATE book SET soft_delete='No' WHERE id='$this->id'";
+        }
+        if ($_GET['restoreid']=='author'){
+            $sql="UPDATE author SET soft_delete='No' WHERE id='$this->id'";
+        }
+        if ($_GET['restoreid']=='category'){
+            $sql="UPDATE category SET soft_delete='No' WHERE id='$this->id'";
+        }
+        if ($_GET['restoreid']=='staff'){
+            $sql="UPDATE staff SET soft_delete='No' WHERE id='$this->id'";
+        }
+        if ($_GET['restoreid']=='student'){
+            $sql="UPDATE student SET soft_delete='No' WHERE id='$this->id'";
+        }
+
+        $STH = $this->DBH->prepare($sql);
+
+        $result =$STH->execute();
+
+        if($result)
+            Message::message("Success! Data Has Been Restored Successfully :)");
+        else
+            Message::message("Failed! Data Has Not Been Restored  :( ");
+
+        Utility::redirect('index.php');
+    }
 
           }

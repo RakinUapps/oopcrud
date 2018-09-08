@@ -7,7 +7,12 @@ include ('../vendor/autoload.php');
 $objAdmin = new \App\Admin\Admin();
 
 $objAdmin->setData($_POST);
+if($_POST['update']=='update'){
+    $objAdmin->update();
+}
+else{
+    $objAdmin->store();
+}
 
-$objAdmin->store();
 
 

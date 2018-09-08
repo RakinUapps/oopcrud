@@ -81,13 +81,7 @@ include 'header.php';
             <div class="col-sm-3"><input class="form-control form-group" name="isbn" type="number"></div>
             <div class="col-sm-4"></div>
             </div>
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-1 text-left"><label for="modified">Modified</label></div>
-            <div class="col-sm-1 text-right">:</div>
-            <div class="col-sm-3"><input class="form-control form-group" name="Modified" type="date"></div>
-            <div class="col-sm-4"></div>
-        </div>
+
         <tr> <td colspan="3" align="center"><input type="submit" class="ui-button" value="Save"></td>
 
     </div>
