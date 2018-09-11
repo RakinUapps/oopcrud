@@ -35,7 +35,6 @@ include 'header.php';
                 <input type="hidden" name="<?php echo $_GET['id']; ?>" value="<?php echo $_GET['id']; ?>" >
                 <input type="hidden" name="editid" value="<?php echo $_GET['editid']; ?>" >
                 <input type="hidden" name="update" value="update" >
-
                 <input class="form-control form-group" name="name" type="text" value="<?php echo $objToArray[0]['name'];?>">
             </div>
             <div class="col-sm-4"></div>
@@ -44,7 +43,7 @@ include 'header.php';
             <div class="col-sm-3"></div>
             <div class="col-sm-1 text-left"><label for="authorid">Author</label></div>
             <div class="col-sm-1 text-right">:</div>
-            <div class="col-sm-3"><input class="form-control form-group" name="authorid" type="text"value="<?php echo $objToArray[0]['authorid'];?>"></div>
+            <div class="col-sm-3"><input class="form-control form-group" name="authorid" type="text" value="<?php echo $objToArray[0]['authorid'];?>"></div>
             <div class="col-sm-4"></div>
         </div>
         <div class="row">
@@ -159,21 +158,21 @@ include 'header.php';
                     <div class="col-sm-3"></div>
                     <div class="col-sm-1 text-left"><label for="doj">DOJ</label></div>
                     <div class="col-sm-1 text-right">:</div>
-                    <div class="col-sm-3"><input class="form-control form-group" name="doj" type="date"></div>
+                    <div class="col-sm-3"><input class="form-control form-group" name="doj" type="date" value="<?php echo $objToArray[0]['doj'];?>"></div>
                     <div class="col-sm-4"></div>
             </div>
                 <div class="row">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-1 text-left"><label for="remarks">Remarks</label></div>
                     <div class="col-sm-1 text-right">:</div>
-                    <div class="col-sm-3"><input class="form-control form-group" name="remarks" type="text"></div>
+                    <div class="col-sm-3"><input class="form-control form-group" name="remarks" type="text" value="<?php echo $objToArray[0]['remarks'];?>"></div>
                     <div class="col-sm-4"></div>
                 </div>
                 <div class="row">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-1 text-left"><label for="staffid">Staff</label></div>
                     <div class="col-sm-1 text-right">:</div>
-                    <div class="col-sm-3"><input class="form-control form-group" name="staffid" type="text"></div>
+                    <div class="col-sm-3"><input class="form-control form-group" name="staffid" type="text" value="<?php echo $objToArray[0]['staffid'];?>"></div>
                     <div class="col-sm-4"></div>
                 </div>
                 <tr> <td colspan="3" align="center"><input type="submit" class="ui-button" value="Save"></td>
@@ -195,7 +194,7 @@ include 'header.php';
                             <input type="hidden" name="<?php echo $_GET['id']; ?>" value="<?php echo $_GET['id']; ?>" >
                             <input type="hidden" name="editid" value="<?php echo $_GET['editid']; ?>" >
                             <input type="hidden" name="update" value="update" >
-                            <input class="form-control form-group" name="name" type="text">
+                            <input class="form-control form-group" name="name" type="text" value="<?php echo $objToArray[0]['name'];?>">
                         </div>
                         <div class="col-sm-4"></div>
                     </div>
@@ -203,21 +202,21 @@ include 'header.php';
                         <div class="col-sm-3"></div>
                         <div class="col-sm-1 text-left"><label for="joined">Joined</label></div>
                         <div class="col-sm-1 text-right">:</div>
-                        <div class="col-sm-3"><input class="form-control form-group" name="joined" type="date"></div>
+                        <div class="col-sm-3"><input class="form-control form-group" name="joined" type="date" value="<?php echo $objToArray[0]['joined'];?>"></div>
                         <div class="col-sm-4"></div>
                     </div>
                     <div class="row">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-1 text-left"><label for="studentid">Student</label></div>
                         <div class="col-sm-1 text-right">:</div>
-                        <div class="col-sm-3"><input class="form-control form-group" name="studentid" type="text"></div>
+                        <div class="col-sm-3"><input class="form-control form-group" name="studentid" type="text" value="<?php echo $objToArray[0]['studentid'];?>"></div>
                         <div class="col-sm-4"></div>
                     </div>
                     <div class="row">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-1 text-left"><label for="remarks">Remarks</label></div>
                         <div class="col-sm-1 text-right">:</div>
-                        <div class="col-sm-3"><input class="form-control form-group" name="remarks" type="text"></div>
+                        <div class="col-sm-3"><input class="form-control form-group" name="remarks" type="text" value="<?php echo $objToArray[0]['remarks'];?>"></div>
                         <div class="col-sm-4"></div>
                     </div>
                     <tr> <td colspan="3" align="center"><input type="submit" class="ui-button" value="Save"></td>
