@@ -105,8 +105,9 @@ include 'header.php';
                             <div class="col-sm-3">
                                 <input name="modified" type="text" hidden  value="<?php echo date('Y-m-d');?>">
                                 <input type="hidden" name="<?php echo $_GET['id']; ?>" value="<?php echo $_GET['id']; ?>" >
+                                <input type="hidden" name="editid" value="<?php echo $_GET['editid']; ?>" >
                                 <input type="hidden" name="update" value="update" >
-                                <input class="form-control form-group" name="name" type="text">
+                                <input class="form-control form-group" name="name" type="text" value="<?php echo $objToArray[0]['name'];?>">
                             </div>
                             <div class="col-sm-4"></div>
                         </div>
@@ -114,14 +115,14 @@ include 'header.php';
                         <div class="col-sm-3"></div>
                         <div class="col-sm-1 text-left"><label for="dob">DOB</label></div>
                         <div class="col-sm-1 text-right">:</div>
-                        <div class="col-sm-3"><input class="form-control form-group" name="dob" type="date"></div>
+                        <div class="col-sm-3"><input class="form-control form-group" name="dob" type="date" value="<?php echo $objToArray[0]['dob'];?>"></div>
                         <div class="col-sm-4"></div>
                     </div>
                     <div class="row">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-1 text-left"><label for="remarks">Remarks</label></div>
                         <div class="col-sm-1 text-right">:</div>
-                        <div class="col-sm-3"><input class="form-control form-group" name="remarks" type="text"></div>
+                        <div class="col-sm-3"><input class="form-control form-group" name="remarks" type="text" value="<?php echo $objToArray[0]['remarks'];?>"></div>
                         <div class="col-sm-4"></div>
                     </div>
 
@@ -148,8 +149,9 @@ include 'header.php';
                     <div class="col-sm-3">
                         <input name="modified" type="text" hidden  value="<?php echo date('Y-m-d');?>">
                         <input type="hidden" name="<?php echo $_GET['id']; ?>" value="<?php echo $_GET['id']; ?>" >
+                        <input type="hidden" name="editid" value="<?php echo $_GET['editid']; ?>" >
                         <input type="hidden" name="update" value="update" >
-                        <input class="form-control form-group" name="name" type="text">
+                        <input class="form-control form-group" name="name" type="text" value="<?php echo $objToArray[0]['name'];?>">
                     </div>
                     <div class="col-sm-4"></div>
                 </div>
@@ -191,6 +193,7 @@ include 'header.php';
                         <div class="col-sm-3">
                             <input name="modified" type="text" hidden  value="<?php echo date('Y-m-d');?>">
                             <input type="hidden" name="<?php echo $_GET['id']; ?>" value="<?php echo $_GET['id']; ?>" >
+                            <input type="hidden" name="editid" value="<?php echo $_GET['editid']; ?>" >
                             <input type="hidden" name="update" value="update" >
                             <input class="form-control form-group" name="name" type="text">
                         </div>
@@ -235,8 +238,9 @@ include 'header.php';
                 <div class="col-sm-3">
                     <input name="modified" type="text" hidden  value="<?php echo date('Y-m-d');?>">
                     <input type="hidden" name="<?php echo $_GET['id']; ?>" value="<?php echo $_GET['id']; ?>" >
+                    <input type="hidden" name="editid" value="<?php echo $_GET['editid']; ?>" >
                     <input type="hidden" name="update" value="update" >
-                    <input class="form-control form-group" name="name" type="text">
+                    <input class="form-control form-group" name="name" type="text" value="<?php echo $objToArray[0]['name'];?>">
                 </div>
                 <div class="col-sm-4"></div>
             </div>

@@ -108,6 +108,28 @@ class Admin extends DB
               return $STH->fetchAll();
               }
 
+      public function  trashview(){
+        $sql='';
+        if ($_GET['id']=='book'){
+            $sql="select * from book WHERE soft_delete='Yes'";
+        }
+        if ($_GET['id']=='author'){
+            $sql="select * from author WHERE soft_delete='Yes'";
+        }
+        if ($_GET['id']=='category'){
+            $sql="select * from category WHERE soft_delete='Yes'";
+        }
+        if ($_GET['id']=='staff'){
+            $sql="select * from staff WHERE soft_delete='Yes'";
+        }
+        if ($_GET['id']=='student'){
+            $sql="select * from student WHERE soft_delete='Yes'";
+        }
+        $STH=$this->DBH->query($sql);
+        $STH->setFetchMode(PDO::FETCH_OBJ);
+        return $STH->fetchAll();
+    }
+
 
           public function  delete(){
          //var_dump($_GET);
@@ -175,25 +197,25 @@ class Admin extends DB
             $arrData = array($this->name, $this->authorid, $this->dop, $this->isbn, $this->categoryid, $this->remarks, $this->price, $this->modified);
             $sql = "UPDATE book SET name=?,authorid=?,dop=?,isbn=?,categoryid=?,remarks=?,price=?,modified=?";
         }
-        if (isset($_POST['addauthor'])){
+        if ($_POST['editid']=='author'){
             $arrData = array($this->name, $this->dob, $this->remarks, $this->modified);
 
             $sql = "UPDATE author SET name=?,dob=?,remarks=?,modified=?";
 
         }
-        if (isset($_POST['addstaff'])){
+        if ($_POST['editid']=='staff'){
             $arrData = array($this->name, $this->doj, $this->remarks, $this->staffid,$this->modified);
 
             $sql = "UPDATE staff SET name=?,doj=?,remarks=?,staffid=?,modified=?";
 
         }
-        if (isset($_POST['addstudent'])){
+        if ($_POST['editid']=='student'){
             $arrData = array($this->name, $this->joined, $this->remarks, $this->studentid);
 
             $sql = "UPDATE student SET name=?,joined=?,remarks=?,studentid=?";
 
         }
-        if (isset($_POST['addcategory'])){
+        if ($_POST['editid']=='category'){
             $arrData = array($this->name);
 
             $sql = "UPDATE category SET name=?";
