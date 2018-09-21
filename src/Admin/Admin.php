@@ -195,30 +195,30 @@ class Admin extends DB
             //var_dump($_POST);
             //die();
             $arrData = array($this->name, $this->authorid, $this->dop, $this->isbn, $this->categoryid, $this->remarks, $this->price, $this->modified);
-            $sql = "UPDATE book SET name=?,authorid=?,dop=?,isbn=?,categoryid=?,remarks=?,price=?,modified=?";
+            $sql = "UPDATE book SET name=?,authorid=?,dop=?,isbn=?,categoryid=?,remarks=?,price=?,modified=? WHERE id='$this->id'";
         }
         if ($_POST['editid']=='author'){
             $arrData = array($this->name, $this->dob, $this->remarks, $this->modified);
 
-            $sql = "UPDATE author SET name=?,dob=?,remarks=?,modified=?";
+            $sql = "UPDATE author SET name=?,dob=?,remarks=?,modified=? WHERE id='$this->id'";
 
         }
         if ($_POST['editid']=='staff'){
             $arrData = array($this->name, $this->doj, $this->remarks, $this->staffid,$this->modified);
 
-            $sql = "UPDATE staff SET name=?,doj=?,remarks=?,staffid=?,modified=?";
+            $sql = "UPDATE staff SET name=?,doj=?,remarks=?,staffid=?,modified=? WHERE id='$this->id'";
 
         }
         if ($_POST['editid']=='student'){
             $arrData = array($this->name, $this->joined, $this->remarks, $this->studentid);
 
-            $sql = "UPDATE student SET name=?,joined=?,remarks=?,studentid=?";
+            $sql = "UPDATE student SET name=?,joined=?,remarks=?,studentid=? WHERE id='$this->id'";
 
         }
         if ($_POST['editid']=='category'){
             $arrData = array($this->name);
 
-            $sql = "UPDATE category SET name=?";
+            $sql = "UPDATE category SET name=? WHERE id='$this->id'";
 
         }
 

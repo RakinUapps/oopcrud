@@ -32,7 +32,7 @@ include 'header.php';
             <div class="col-sm-1 text-right">:</div>
             <div class="col-sm-3">
                 <input name="modified" type="text" hidden  value="<?php echo date('Y-m-d');?>">
-                <input type="hidden" name="<?php echo $_GET['id']; ?>" value="<?php echo $_GET['id']; ?>" >
+                <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" >
                 <input type="hidden" name="editid" value="<?php echo $_GET['editid']; ?>" >
                 <input type="hidden" name="update" value="update" >
                 <input class="form-control form-group" name="name" type="text" value="<?php echo $objToArray[0]['name'];?>">
@@ -103,7 +103,7 @@ include 'header.php';
                             <div class="col-sm-1 text-right">:</div>
                             <div class="col-sm-3">
                                 <input name="modified" type="text" hidden  value="<?php echo date('Y-m-d');?>">
-                                <input type="hidden" name="<?php echo $_GET['id']; ?>" value="<?php echo $_GET['id']; ?>" >
+                                <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" >
                                 <input type="hidden" name="editid" value="<?php echo $_GET['editid']; ?>" >
                                 <input type="hidden" name="update" value="update" >
                                 <input class="form-control form-group" name="name" type="text" value="<?php echo $objToArray[0]['name'];?>">
@@ -147,7 +147,7 @@ include 'header.php';
                     <div class="col-sm-1 text-right">:</div>
                     <div class="col-sm-3">
                         <input name="modified" type="text" hidden  value="<?php echo date('Y-m-d');?>">
-                        <input type="hidden" name="<?php echo $_GET['id']; ?>" value="<?php echo $_GET['id']; ?>" >
+                        <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" >
                         <input type="hidden" name="editid" value="<?php echo $_GET['editid']; ?>" >
                         <input type="hidden" name="update" value="update" >
                         <input class="form-control form-group" name="name" type="text" value="<?php echo $objToArray[0]['name'];?>">
@@ -191,7 +191,7 @@ include 'header.php';
                         <div class="col-sm-1 text-right">:</div>
                         <div class="col-sm-3">
                             <input name="modified" type="text" hidden  value="<?php echo date('Y-m-d');?>">
-                            <input type="hidden" name="<?php echo $_GET['id']; ?>" value="<?php echo $_GET['id']; ?>" >
+                            <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" >
                             <input type="hidden" name="editid" value="<?php echo $_GET['editid']; ?>" >
                             <input type="hidden" name="update" value="update" >
                             <input class="form-control form-group" name="name" type="text" value="<?php echo $objToArray[0]['name'];?>">
@@ -236,7 +236,7 @@ include 'header.php';
                 <div class="col-sm-1 text-right">:</div>
                 <div class="col-sm-3">
                     <input name="modified" type="text" hidden  value="<?php echo date('Y-m-d');?>">
-                    <input type="hidden" name="<?php echo $_GET['id']; ?>" value="<?php echo $_GET['id']; ?>" >
+                    <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" >
                     <input type="hidden" name="editid" value="<?php echo $_GET['editid']; ?>" >
                     <input type="hidden" name="update" value="update" >
                     <input class="form-control form-group" name="name" type="text" value="<?php echo $objToArray[0]['name'];?>">
