@@ -269,4 +269,32 @@ class Admin extends DB
         Utility::redirect('index.php');
     }
 
+    public function harddelete(){
+        $sql='';
+
+        if ($_GET['deleteid']=='book'){
+            $sql="DELETE FROM book WHERE id='$this->id'";
+        }
+        if ($_GET['deleteid']=='author'){
+            $sql="DELETE FROM author WHERE id='$this->id'";
+        }
+        if ($_GET['deleteid']=='category'){
+            $sql="DELETE FROM category WHERE id='$this->id'";
+        }
+        if ($_GET['deleteid']=='staff'){
+            $sql="DELETE FROM staff WHERE id='$this->id'";
+        }
+        if ($_GET['deleteid']=='student'){
+            $sql="DELETE FROM student WHERE id='$this->id'";
+        }
+
+        $result = $this->DBH->exec($sql);
+        if($result)
+            Message::message("Success! Data Has Been Deleted Successfully :)");
+        else
+            Message::message("Failed! Data Has Not Been Deleted  :( ");
+
+        Utility::redirect('index.php');
+    }
+
           }
