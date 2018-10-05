@@ -84,11 +84,7 @@ $serial=1;
     <div class="col-sm-1"></div>
 </div>
 </div>
-
-
 <?php
 include 'footer.php';
 include 'footer_script.php';
 ?>
-</body>
-</html>

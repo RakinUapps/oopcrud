@@ -1,6 +1,6 @@
 <?php
-header('location:views/index.php');
-/*
+
+
 include_once('vendor/autoload.php');
 
 ########################### SESSION CODE STSRTED ################################################
@@ -31,8 +31,8 @@ if(isset($_SESSION['expire'])) {
     }
     $_SESSION['expire'] = time();
     /* session timeout code end  */
-//}
+}
 ################################ End of Session time calculation ##############################
 ########################### SESSION CODE ENDED ################################################
-//Utility::redirect('views/index.php');
+Utility::redirect('views/index.php');
 ?>

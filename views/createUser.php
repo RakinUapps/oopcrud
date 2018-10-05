@@ -1,4 +1,6 @@
-<?php 
+<?php
+include_once('../vendor/autoload.php');
+include('namespace.php');
 include('header.php');
 ?>
 	<div class="content">
@@ -74,5 +76,6 @@ include('header.php');
 	</div>
  <?php 
 include('footer.php');
+include('footer_script.php');
 ?> 
  

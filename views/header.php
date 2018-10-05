@@ -1,3 +1,36 @@
+<?php
+########################### SESSION CODE STSRTED ################################################
+if(!isset($_SESSION) ) session_start();
+use App\User\User;
+use App\User\Auth;
+use App\Message\Message;
+use App\Utility\Utility;
+$obj= new User();
+$obj->setData($_SESSION);
+$singleUser = $obj->view();
+$auth= new Auth();
+$status = $auth->setData($_SESSION)->logged_in();
+$sessionMinute=$auth->sessionPeriod;
+$sessionMinuteMultiply=$auth->sessionPeriodMultiply;
+if(!$status) {
+    Utility::redirect('User/Profile/signup.php');
+    return;
+}
+############################### Session time calculation #####################################
+if(isset($_SESSION['expire'])) {
+    $exp = $_SESSION['expire'];
+    $now = time(); // Checking the time now when home page starts.
+    $sub_exp = $now - $exp;
+    if ($sub_exp > ($sessionMinute * $sessionMinuteMultiply)) {
+        session_destroy();
+        Utility::redirect('User/Profile/signup.php');
+    }
+    $_SESSION['expire'] = time();
+    /* session timeout code end  */
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,7 +69,7 @@
                         <a href="index.php"><h3>Library Management System</h3></a>
 					</div>
 					<div class="col-md-3 text-right">
-					<!--	<p>Hi ! <b><?php echo "<b>$singleUser->first_name $singleUser->last_name</b>"?>!</b> &nbsp; <a href="User/Authentication/logout.php">[ Log Out ]</a></p>-->
+                        <p>Hi ! <b><?php echo "<b>$singleUser->first_name $singleUser->last_name</b>"?>!</b> &nbsp; <a href="User/Authentication/logout.php">[ Log Out ]</a></p>
 					</div>
 				</div>
 				<nav  class="navbar navbar-default navbar-static">

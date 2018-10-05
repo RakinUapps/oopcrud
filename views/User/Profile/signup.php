@@ -13,7 +13,7 @@ use App\Message\Message;
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BSBL: Login</title>
+    <title>Uapps Tech: Login</title>
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link rel="stylesheet" href="../../../resource/bootstrap/css/bootstrap.min.css">
@@ -25,7 +25,7 @@ use App\Message\Message;
     <script src="../../../resource/js/respond.min.js"></script>
     <![endif]-->
     <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="../../../resource/ico/favicon.png">
+    <link rel="shortcut icon" href="../../../resource/ico/logo.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../resource/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../resource/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../resource/ico/apple-touch-icon-72-precomposed.png">
@@ -57,7 +57,7 @@ use App\Message\Message;
                     <div class="form-box" style="margin-top: 0%">
                         <div class="form-top">
                             <div class="form-top-left">
-                                <h3>BSBL</h3>
+                                <h3>Uapps Tech</h3>
                                 <p>Enter username and password to log on:</p>
                             </div>
                             <div class="form-top-right">

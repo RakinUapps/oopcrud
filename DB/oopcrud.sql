@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2018 at 05:20 AM
+-- Generation Time: Oct 05, 2018 at 07:22 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.5.38
 
@@ -40,18 +40,18 @@ CREATE TABLE `author` (
 --
 
 INSERT INTO `author` (`id`, `name`, `dob`, `remarks`, `modified`, `soft_delete`) VALUES
-(1, 'Lew tolstoy', NULL, NULL, NULL, 'No'),
-(2, 'Mark Towen', NULL, NULL, NULL, 'No'),
-(3, 'Stephen Hawking', NULL, NULL, NULL, 'No'),
-(4, 'Rakib Hasan', NULL, NULL, NULL, 'No'),
-(5, 'Dr. Jafar Iqbal', NULL, NULL, NULL, 'No'),
-(6, NULL, NULL, 'book', '2018-08-17', 'Yes'),
-(7, NULL, NULL, 'poet', '2018-08-17', 'Yes'),
-(8, 'Tagore', NULL, 'poet', '2018-08-17', 'No'),
-(9, 'Jashim', NULL, 'poet', '2018-08-18', 'No'),
-(10, 'Tagore Rabi', NULL, 'poet in action', '2018-08-18', 'No'),
-(11, 'Humayan', NULL, 'Novel writer', '2018-08-18', 'No'),
-(12, 'Gazi Tazrul', '1940-02-29', 'Poet in action. Fake Writer.', '2018-08-27', 'No');
+(1, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
+(2, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'Yes'),
+(3, 'Gazi Tazrul', '1900-05-12', 'Poet in action. Fake Writer.', '2018-09-21', 'No'),
+(4, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
+(5, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
+(6, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'Yes'),
+(7, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'Yes'),
+(8, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
+(9, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
+(10, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
+(11, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
+(12, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE `book` (
   `isbn` int(11) DEFAULT NULL,
   `dop` date DEFAULT NULL,
   `remarks` varchar(200) DEFAULT NULL,
-  `price` float(5,2) DEFAULT NULL,
+  `price` int(5) DEFAULT NULL,
   `modified` date DEFAULT NULL,
   `soft_delete` varchar(3) DEFAULT 'No'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -77,8 +77,8 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`id`, `name`, `authorid`, `categoryid`, `isbn`, `dop`, `remarks`, `price`, `modified`, `soft_delete`) VALUES
-(2, 'Time Travel', 2, 2, 1234567810, '2008-01-01', 'time related', 999.99, '2009-02-01', 'No'),
-(3, 'Time Travel 2', 3, 3, 1234567811, '2015-01-01', 'time string', 999.99, '2016-02-11', 'Yes');
+(2, 'Book 34', 2, 3, 2147483647, '2003-10-01', 'book', 1000, '2018-09-07', 'No'),
+(4, 'Book 34', 2, 3, 2147483647, '2003-10-01', 'book', 1000, '2018-09-07', 'No');
 
 -- --------------------------------------------------------
 
@@ -97,12 +97,11 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `soft_delete`) VALUES
-(1, 'history', 'No'),
-(2, 'Sci-Fi', 'No'),
+(1, 'Sciece Fiction', 'No'),
+(2, 'HISTORY', 'No'),
 (3, 'Novel', 'No'),
-(4, 'story', 'No'),
-(5, 'poetry', 'Yes'),
-(6, 'Computing', 'Yes');
+(4, 'Poem', 'No'),
+(6, 'Novel', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -125,9 +124,9 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`id`, `name`, `staffid`, `doj`, `remarks`, `modified`, `soft_delete`) VALUES
-(1, 'Karim', '1', '1998-10-10', 'Assistant', '2018-08-18', 'Yes'),
-(2, 'Rahim', '2', '1989-10-10', 'Librian', '2018-08-18', 'No'),
-(3, 'Sakib', '3', '1985-11-11', 'Sr. Librian', '2018-08-18', 'Yes');
+(1, 'Rahim', '2', '1989-10-10', 'sr.Librian', '2018-09-11', 'Yes'),
+(2, 'Rahim', '2', '1989-10-10', 'sr.Librian', '2018-09-11', 'No'),
+(3, 'Rahim', '2', '1989-10-10', 'sr.Librian', '2018-09-11', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -151,6 +150,32 @@ CREATE TABLE `student` (
 
 INSERT INTO `student` (`id`, `name`, `studentid`, `joined`, `remarks`, `modified`, `soft_delete`) VALUES
 (1, 'Karim', '1', '2000-01-01', 'class nine', '2018-08-18', 'No');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(111) NOT NULL,
+  `last_name` varchar(111) NOT NULL,
+  `email` varchar(111) NOT NULL,
+  `password` varchar(111) NOT NULL,
+  `role` varchar(5) NOT NULL,
+  `permission` varchar(2000) NOT NULL,
+  `phone` varchar(111) NOT NULL,
+  `address` varchar(333) NOT NULL,
+  `email_verified` varchar(111) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `role`, `permission`, `phone`, `address`, `email_verified`) VALUES
+(27, 'Mr.', 'Rakin', 'rakin@rakin.com', 'feb54a0a7b6d7dd12a5fc67e3863eb8c', 'admin', '', '8801841130077', 'Chittagong', 'Yes');
 
 --
 -- Indexes for dumped tables
@@ -187,6 +212,12 @@ ALTER TABLE `student`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -199,7 +230,7 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -215,6 +246,11 @@ ALTER TABLE `staff`
 --
 ALTER TABLE `student`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
