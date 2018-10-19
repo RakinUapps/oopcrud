@@ -88,7 +88,7 @@ include 'header.php';
     <div class="col-sm-1"></div>
     </form>
 </div>
-<!-- authoe-->
+<!-- author-->
     <?php }
     if($_GET['id']=='addauthor'){ ?>
         <div class="row">

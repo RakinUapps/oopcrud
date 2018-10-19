@@ -1,5 +1,6 @@
 <?php
 ########################### SESSION CODE STSRTED ################################################
+ob_start();
 if(!isset($_SESSION) ) session_start();
 use App\User\User;
 use App\User\Auth;
