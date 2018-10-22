@@ -13,9 +13,7 @@ $msg = Message::getMessage();
 include 'header.php';
 ?>
 
-<div class="text-center">
-    <?php echo "<div style='height: 30px; text-align: center'> <div class='alert-success' id='message'> $msg</div> </div>"; ?>
-</div>
+
 <div style="height: 300px" id="tb" align="center">
 
 <!--<a href="view.php">View Book</a>-->

@@ -1,5 +1,6 @@
 <?php
 include ('../vendor/autoload.php');
+include ('namespace.php');
 use App\Message\Message;
 use App\Utility\Utility;
 
@@ -19,7 +20,11 @@ include 'header.php';
 </div>
 <div id="tb" align="center">
     <?php
-    if($_GET['id']=='addbook'){ ?>
+    if($_GET['id']=='addbook'){
+    $objAdmin->setData($_GET);
+    $viewData=$objAdmin->view();
+
+        ?>
 <!-- Book page-->
 <div class="row">
     <form  action="store.php" method="post">
@@ -41,7 +46,14 @@ include 'header.php';
             <div class="col-sm-3"></div>
             <div class="col-sm-1 text-left"><label for="authorid">Author</label></div>
             <div class="col-sm-1 text-right">:</div>
-            <div class="col-sm-3"><input class="form-control form-group" name="authorid" type="text"></div>
+            <div class="col-sm-3">
+                <select name="authorid" class="form-control form-group">
+                    <?php
+                    foreach ($viewData as $oneData){
+                        echo " <option value=\"$oneData->id\">$oneData->name</option>";
+                    }
+                    ?>
+                </select> </div>
             <div class="col-sm-4"></div>
         </div>
         <div class="row">
@@ -57,7 +69,21 @@ include 'header.php';
             <div class="col-sm-3"></div>
             <div class="col-sm-1 text-left"><label for="categoryid">Category</label></div>
             <div class="col-sm-1 text-right">:</div>
-            <div class="col-sm-3"><input class="form-control form-group" name="categoryid" type="text"></div>
+            <div class="col-sm-3">
+                <?php
+                $_GET['id']='category';
+                $objAdmin->setData($_GET);
+                $viewCategory=$objAdmin->view();
+
+                ?>
+                <select name="categoryid" class="form-control form-group">
+                    <?php
+                    foreach ($viewCategory as $oneData){
+                        echo " <option value=\"$oneData->id\">$oneData->name</option>";
+                    }
+                    ?>
+                </select>
+            </div>
             <div class="col-sm-4"></div>
         </div>
         <div class="row">
@@ -90,7 +116,12 @@ include 'header.php';
 </div>
 <!-- author-->
     <?php }
-    if($_GET['id']=='addauthor'){ ?>
+    if($_GET['id']=='addauthor'){
+       // $objAdmin->setData($_GET);
+        //$viewData=$objAdmin->view();
+        //var_dump($viewData);
+
+        ?>
         <div class="row">
             <form action="store.php" method="post">
                 <div class="col-sm-1"></div>

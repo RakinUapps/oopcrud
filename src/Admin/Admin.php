@@ -68,7 +68,6 @@ class Admin extends DB
 
     public function store()
     {
-
         $arrData = '';
         $sql = '';
 
@@ -112,7 +111,8 @@ class Admin extends DB
 
         Utility::redirect('index.php');
 
-
+        var_dump($_POST);
+        die();
     }
 
 
@@ -120,10 +120,10 @@ class Admin extends DB
     {
         $sql = '';
 
-        if ($_GET['id'] == 'book') {
+        if ($_GET['id'] == 'book'){
             $sql = "select * from book WHERE soft_delete='No'";
         }
-        if ($_GET['id'] == 'author') {
+        if ($_GET['id'] == 'author'|| $_GET['id']=='addbook') {
             $sql = "select * from author WHERE soft_delete='No'";
         }
         if ($_GET['id'] == 'category') {
@@ -381,5 +381,34 @@ class Admin extends DB
         Utility::redirect($_SERVER['HTTP_REFERER']);
 
 
+    }
+    public function recoverMultiple(){
+        $selectedIDsArray=$_POST['mark'];
+
+        if ($_POST['recoverid']=='book'){$this->table='book';}
+        if ($_POST['recoverid']=='author'){$this->table='author';}
+        if ($_POST['recoverid']=='category'){$this->table='category';}
+        if ($_POST['recoverid']=='staff'){$this->table='staff';}
+        if ($_POST['recoverid']=='student'){$this->table='student';}
+
+        foreach($selectedIDsArray as $id){
+
+            $sql = "UPDATE $this->table SET soft_delete='No' WHERE id=".$id;
+
+            $result = $this->DBH->exec($sql);
+
+            if(!$result) break;
+
+        }
+
+
+
+        if($result)
+            Message::message("Success! All Selected Data Has Been Recovered Successfully :)");
+        else
+            Message::message("Failed! All Selected Data Has Not Been Recovered  :( ");
+
+
+        Utility::redirect($_SERVER['HTTP_REFERER']);
     }
 }

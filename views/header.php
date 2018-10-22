@@ -130,3 +130,6 @@ if(isset($_SESSION['expire'])) {
 				</nav>
 		</div>
 	</div>
+    <div class="text-center">
+        <?php echo "<div style='height: 30px; text-align: center'> <div class='alert-success' id='message'> $msg</div> </div>"; ?>
+    </div>
