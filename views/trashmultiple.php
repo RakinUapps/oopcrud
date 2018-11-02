@@ -10,7 +10,7 @@ use App\Utility\Utility;
 if (isset($_POST['mark'])){
     $objData= new \App\Admin\Admin();
 
-    //$objData->setData($_POST['deleteid']);
+
     $objData->trashMultiple($_POST);
     Utility::redirect("trashview.php?id=".$_POST['deleteid']);
 }

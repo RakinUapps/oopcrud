@@ -131,7 +131,7 @@
     })
 
     $('#delete').on('click',function(){
-        document.forms[1].action="trashmultiple.php";
+        document.forms['multiple'].action="harddelete.php";
         $('#multiple').submit();
     });
 

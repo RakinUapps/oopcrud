@@ -411,4 +411,33 @@ class Admin extends DB
 
         Utility::redirect($_SERVER['HTTP_REFERER']);
     }
+    public function permanentDelete(){
+        $selectedIDsArray=$_POST['mark'];
+
+        if ($_POST['recoverid']=='book'){$this->table='book';}
+        if ($_POST['recoverid']=='author'){$this->table='author';}
+        if ($_POST['recoverid']=='category'){$this->table='category';}
+        if ($_POST['recoverid']=='staff'){$this->table='staff';}
+        if ($_POST['recoverid']=='student'){$this->table='student';}
+
+        foreach($selectedIDsArray as $id){
+
+            $sql = "DELETE FROM $this->table  WHERE id=".$id;
+
+            $result = $this->DBH->exec($sql);
+
+            if(!$result) break;
+
+        }
+
+
+
+        if($result)
+            Message::message("Success! All Selected Data Has Been Permanently delete Successfully :)");
+        else
+            Message::message("Failed! Selected Data Has Not Been deleted  :( ");
+
+
+        Utility::redirect($_SERVER['HTTP_REFERER']);
+    }
 }

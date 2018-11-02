@@ -10,12 +10,13 @@ $viewData=$objData->trashview();
 
 $serial=1;
 ?>
-    <form action="recovermultiple.php" method="post" id="multiple">
+    <form name="multiple" action="recovermultiple.php" method="post" id="multiple">
         <div class="container">
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-9" style="text-align: right">
                     <button type="submit" class="btn btn-warning">Recover Selected</button>
+                    <button type="submit" class="btn btn-danger" id="delete">Permanent Delete</button>
                     <input type="hidden" name="recoverid" value="<?php echo $_GET['id']?>">
                 </div>
                 <div class="col-sm-1"></div>

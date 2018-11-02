@@ -4,7 +4,12 @@ include ('namespace.php');
 
 
 $objData= new \App\Admin\Admin();
-$objData->setData($_GET);
-$viewData=$objData->harddelete();
-
+if (isset($_POST['mark'])){
+    $objData->setData($_POST);
+    $viewData=$objData->permanentDelete();
+}
+else {
+    $objData->setData($_GET);
+    $viewData = $objData->harddelete();
+}
 ?>
