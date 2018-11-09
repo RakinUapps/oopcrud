@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2018 at 07:22 AM
+-- Generation Time: Nov 09, 2018 at 06:05 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.5.38
 
@@ -41,17 +41,9 @@ CREATE TABLE `author` (
 
 INSERT INTO `author` (`id`, `name`, `dob`, `remarks`, `modified`, `soft_delete`) VALUES
 (1, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
-(2, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'Yes'),
-(3, 'Gazi Tazrul', '1900-05-12', 'Poet in action. Fake Writer.', '2018-09-21', 'No'),
-(4, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
-(5, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
-(6, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'Yes'),
-(7, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'Yes'),
-(8, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
-(9, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
-(10, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
-(11, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No'),
-(12, 'Mark Towen', '1900-05-12', 'Writer', '2018-09-11', 'No');
+(4, 'Nazrul ', '1950-05-12', 'Writer', '2018-10-22', 'No'),
+(5, 'Henry', '1900-05-12', 'Writer', '2018-10-22', 'No'),
+(8, 'Brian', '1986-12-05', 'Writer', '2018-10-22', 'No');
 
 -- --------------------------------------------------------
 
@@ -64,7 +56,7 @@ CREATE TABLE `book` (
   `name` varchar(50) DEFAULT NULL,
   `authorid` int(5) DEFAULT NULL,
   `categoryid` int(5) DEFAULT NULL,
-  `isbn` int(11) DEFAULT NULL,
+  `isbn` int(16) DEFAULT NULL,
   `dop` date DEFAULT NULL,
   `remarks` varchar(200) DEFAULT NULL,
   `price` int(5) DEFAULT NULL,
@@ -77,8 +69,16 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`id`, `name`, `authorid`, `categoryid`, `isbn`, `dop`, `remarks`, `price`, `modified`, `soft_delete`) VALUES
-(2, 'Book 34', 2, 3, 2147483647, '2003-10-01', 'book', 1000, '2018-09-07', 'No'),
-(4, 'Book 34', 2, 3, 2147483647, '2003-10-01', 'book', 1000, '2018-09-07', 'No');
+(4, 'Book 34', 1, 3, 123456789, '2003-10-01', 'book', 1000, '2018-10-22', 'No'),
+(5, 'Boku Note', 1, 2, 123652468, '2006-01-01', 'Good', 1000, '2018-10-22', 'No'),
+(8, '20484', 3, 1, 43532722, '2006-02-10', 'Fake book', 2500, '2018-10-22', 'No'),
+(9, 'Boku Note 2', 1, 2, 534684654, '2005-02-12', '2355', 5566, '2018-10-22', 'No'),
+(10, 'The End', 5, 4, 747476748, '2010-10-10', 'Awesome', 2222, '2018-10-22', 'No'),
+(11, 'The Beginning', 4, 4, 13235465, '2011-11-11', 'Cool', 1000, '2018-10-22', 'No'),
+(12, 'The Journey of Pinpin', 5, 2, 92939393, '2009-01-10', 'BOOK', 1000, '2018-10-22', 'No'),
+(13, 'The War of 2018', 3, 2, 13254354, '2018-10-10', 'Hard to read.', 1200, '2018-10-22', 'No'),
+(14, 'Invisible Book', 5, 1, 11216464, '2017-05-05', 'Don''t read it', 1000, '2018-10-22', 'No'),
+(15, 'Exotic2', 2, 1, 1234567890, '2000-10-10', 'book 90', 1000, '2018-10-22', 'No');
 
 -- --------------------------------------------------------
 
@@ -97,11 +97,12 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `soft_delete`) VALUES
-(1, 'Sciece Fiction', 'No'),
+(1, 'Science Fiction', 'No'),
 (2, 'HISTORY', 'No'),
 (3, 'Novel', 'No'),
 (4, 'Poem', 'No'),
-(6, 'Novel', 'Yes');
+(6, 'Novel', 'Yes'),
+(7, 'Exotic', 'No');
 
 -- --------------------------------------------------------
 
@@ -124,9 +125,7 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`id`, `name`, `staffid`, `doj`, `remarks`, `modified`, `soft_delete`) VALUES
-(1, 'Rahim', '2', '1989-10-10', 'sr.Librian', '2018-09-11', 'Yes'),
-(2, 'Rahim', '2', '1989-10-10', 'sr.Librian', '2018-09-11', 'No'),
-(3, 'Rahim', '2', '1989-10-10', 'sr.Librian', '2018-09-11', 'Yes');
+(2, 'Rahim', '2', '1989-10-10', 'sr.Librian', '2018-09-11', 'No');
 
 -- --------------------------------------------------------
 
@@ -225,22 +224,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `author`
 --
 ALTER TABLE `author`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `student`
 --
